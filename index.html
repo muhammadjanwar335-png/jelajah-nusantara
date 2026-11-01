@@ -1,0 +1,1156 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Jelajah Nusantara – Explore Indonesia. Website pariwisata modern Indonesia yang menyajikan informasi lengkap 12 destinasi unggulan, 6 kategori wisata, galeri foto interaktif, dan panduan perjalanan terbaik nusantara.">
+  <meta name="keywords" content="wisata indonesia, jelajah nusantara, explore indonesia, raja ampat, bromo, bali, labuan bajo, pariwisata indonesia">
+  <meta name="author" content="Mahasiswa Pemrograman Web">
+  <title>JELAJAH NUSANTARA – Explore Indonesia | Pesona Wisata Nusantara</title>
+
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ======================================================================
+       Scroll Progress Bar & Preloader
+       ====================================================================== -->
+  <div id="scroll-progress" aria-hidden="true"></div>
+
+  <div id="preloader" aria-label="Memuat Website">
+    <div class="spinner-wrap">
+      <div class="spinner-circle"></div>
+      <div class="spinner-icon">🏝️</div>
+    </div>
+    <div class="preloader-title">JELAJAH NUSANTARA</div>
+    <div class="preloader-sub">Memuat Keindahan Alam Indonesia...</div>
+  </div>
+
+  <!-- ======================================================================
+       Header & Navigation Bar
+       ====================================================================== -->
+  <header class="navbar-wrapper">
+    <div class="container navbar-inner">
+      <!-- Brand Logo -->
+      <a href="#beranda" class="brand-logo" aria-label="Beranda Jelajah Nusantara">
+        <div class="logo-badge">🧭</div>
+        <div class="logo-text-group">
+          <span class="logo-title">JELAJAH <span>NUSANTARA</span></span>
+          <span class="logo-tagline">Explore Indonesia</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav Menu -->
+      <nav class="nav-menu" aria-label="Navigasi Utama">
+        <a href="#beranda" class="nav-link active">Beranda</a>
+        <a href="#kategori" class="nav-link">Kategori</a>
+        <a href="#destinasi" class="nav-link">Destinasi</a>
+        <a href="#keunggulan" class="nav-link">Mengapa Indonesia</a>
+        <a href="#galeri" class="nav-link">Galeri</a>
+        <a href="#tentang" class="nav-link">Tentang Kami</a>
+        <a href="#kontak" class="nav-link">Kontak</a>
+      </nav>
+
+      <!-- Navbar Right Actions -->
+      <div class="navbar-actions">
+        <!-- Favorites Drawer Toggle -->
+        <button type="button" class="nav-action-btn" id="fav-drawer-btn" title="Daftar Favorit" aria-label="Lihat Destinasi Favorit">
+          <span>❤️</span>
+          <span class="badge-counter" id="fav-badge-count">0</span>
+        </button>
+
+        <!-- Dark / Light Mode Toggle -->
+        <button type="button" class="nav-action-btn" id="theme-toggle-btn" title="Ganti Tema (Gelap/Terang)" aria-label="Ganti Tema">
+          🌙
+        </button>
+
+        <!-- Mobile Hamburger Button -->
+        <button type="button" class="hamburger-btn" id="hamburger-btn" aria-label="Buka Menu Navigasi Mobile">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Nav Drawer & Backdrop -->
+  <div class="mobile-nav-backdrop" id="mobile-nav-backdrop"></div>
+  <aside class="mobile-nav-drawer" id="mobile-nav-drawer" aria-label="Menu Mobile">
+    <div class="mobile-nav-header">
+      <div class="brand-logo">
+        <div class="logo-badge">🧭</div>
+        <div class="logo-text-group">
+          <span class="logo-title">JELAJAH <span>NUSANTARA</span></span>
+          <span class="logo-tagline">Explore Indonesia</span>
+        </div>
+      </div>
+      <button type="button" class="nav-action-btn" id="mobile-nav-close" aria-label="Tutup Menu">✕</button>
+    </div>
+
+    <nav class="mobile-nav-links">
+      <a href="#beranda" class="nav-link active">🏠 Beranda</a>
+      <a href="#kategori" class="nav-link">🌿 Kategori Wisata</a>
+      <a href="#destinasi" class="nav-link">🗺️ Destinasi Pilihan</a>
+      <a href="#keunggulan" class="nav-link">✨ Mengapa Indonesia</a>
+      <a href="#galeri" class="nav-link">📷 Galeri Wisata</a>
+      <a href="#tentang" class="nav-link">ℹ️ Tentang Kami</a>
+      <a href="#faq" class="nav-link">❓ Tanya Jawab (FAQ)</a>
+      <a href="#kontak" class="nav-link">✉️ Hubungi Kami</a>
+    </nav>
+
+    <div style="margin-top: auto; padding-top: 1.5rem; border-top: 1px solid var(--border-color); display: flex; flex-direction: column; gap: 0.75rem;">
+      <button type="button" class="btn btn-secondary btn-sm" id="mobile-fav-drawer-btn" style="width: 100%; justify-content: space-between;">
+        <span>❤️ Destinasi Favorit</span>
+        <span class="badge-counter" id="mobile-fav-badge-count" style="position: static;">0</span>
+      </button>
+      <button type="button" class="btn btn-secondary btn-sm" id="mobile-theme-toggle" style="width: 100%;">
+        🌙 <span>Mode Gelap</span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- ======================================================================
+       Hero Section
+       ====================================================================== -->
+  <section class="hero-section" id="beranda">
+    <div class="hero-bg-wrapper">
+      <img 
+        src="https://images.unsplash.com/photo-1516690561799-46d8f74f9abf?auto=format&fit=crop&w=1920&q=80" 
+        alt="Keindahan Panorama Wisata Alam Indonesia" 
+        class="hero-bg-img"
+        onerror="this.onerror=null; this.src='images/hero-banner.svg';"
+      >
+      <div class="hero-overlay"></div>
+    </div>
+
+    <div class="container hero-content">
+      <div class="hero-badge">
+        <span>✨</span> Surga Zamrud Khatulistiwa Terbesar di Dunia
+      </div>
+
+      <h1 class="hero-title">
+        Jelajahi Keindahan <span class="highlight-gold">Indonesia</span> Yang Tak Terlupakan
+      </h1>
+
+      <p class="hero-description">
+        Temukan pesona lebih dari 17.000 pulau eksotis, puncak gunung berapi megah, cagar biosfer bawah laut terkaya di bumi, serta kehangatan budaya leluhur nusantara dalam satu panduan komprehensif.
+      </p>
+
+      <div class="hero-cta-group">
+        <a href="#destinasi" class="btn btn-gold">
+          🗺️ Jelajahi Destinasi Unggulan
+        </a>
+        <a href="#galeri" class="btn btn-secondary">
+          📷 Lihat Galeri Foto
+        </a>
+      </div>
+
+      <!-- Quick Search Bar in Hero -->
+      <div class="hero-search-box">
+        <form class="search-form-grid" id="hero-search-form" onsubmit="return false;">
+          <div class="search-field-group">
+            <label class="search-field-label">Cari Nama Tempat / Pulau</label>
+            <div class="search-field-inner">
+              <span class="search-field-icon">🔍</span>
+              <input type="text" id="hero-search-input" class="search-field-input" placeholder="Contoh: Raja Ampat, Bromo, Bali...">
+            </div>
+          </div>
+
+          <div class="search-field-group">
+            <label class="search-field-label">Kategori Wisata</label>
+            <div class="search-field-inner">
+              <span class="search-field-icon">🏷️</span>
+              <select id="hero-category-select" class="search-field-select">
+                <option value="all">Semua Kategori</option>
+                <option value="pantai">Wisata Pantai</option>
+                <option value="pegunungan">Wisata Pegunungan</option>
+                <option value="budaya">Wisata Budaya</option>
+                <option value="sejarah">Wisata Sejarah</option>
+                <option value="alam">Wisata Alam</option>
+                <option value="bahari">Wisata Bahari</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="search-field-group">
+            <label class="search-field-label">Wilayah / Pulau</label>
+            <div class="search-field-inner">
+              <span class="search-field-icon">📍</span>
+              <select id="hero-region-select" class="search-field-select">
+                <option value="all">Semua Wilayah</option>
+                <option value="jawa">Pulau Jawa</option>
+                <option value="bali">Bali & Nusa Tenggara</option>
+                <option value="sumatera">Pulau Sumatera</option>
+                <option value="sulawesi">Pulau Sulawesi</option>
+                <option value="papua">Papua & Maluku</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="search-field-group" style="align-self: flex-end;">
+            <button type="submit" id="hero-search-btn" class="btn btn-primary" style="width: 100%;">
+              Temukan Wisata ➔
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Hero Stats Row -->
+      <div class="hero-stats-row">
+        <div class="hero-stat-item">
+          <div class="stat-icon-wrap">🏝️</div>
+          <div>
+            <div class="stat-value">17.508+</div>
+            <div class="stat-label">Pulau Tropis Eksotis</div>
+          </div>
+        </div>
+
+        <div class="hero-stat-item">
+          <div class="stat-icon-wrap">⭐</div>
+          <div>
+            <div class="stat-value">12 Destinasi</div>
+            <div class="stat-label">Ikonik Wajib Dikunjungi</div>
+          </div>
+        </div>
+
+        <div class="hero-stat-item">
+          <div class="stat-icon-wrap">🤿</div>
+          <div>
+            <div class="stat-value">75% Karang Dunia</div>
+            <div class="stat-label">Segitiga Terumbu Karang</div>
+          </div>
+        </div>
+
+        <div class="hero-stat-item">
+          <div class="stat-icon-wrap">🏛️</div>
+          <div>
+            <div class="stat-value">9 Situs UNESCO</div>
+            <div class="stat-label">Warisan Berharga Dunia</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================================
+       Kategori Wisata Section (6 Kategori Menarik)
+       ====================================================================== -->
+  <section class="section-padding" id="kategori">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">🌿 Ragam Petualangan</span>
+        <h2 class="section-title">Kategori Wisata <span class="gradient-text">Nusantara</span></h2>
+        <p class="section-subtitle">
+          Pilihlah tipe liburan impian Anda, mulai dari ketenangan pesisir pasir putih hingga petualangan mendaki puncak gunung berapi purba.
+        </p>
+      </div>
+
+      <div class="categories-grid">
+        <!-- 1. Wisata Pantai -->
+        <div class="category-card" data-category="pantai">
+          <div class="category-media">
+            <img 
+              src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=700&q=80" 
+              alt="Wisata Pantai Indonesia" 
+              class="category-img"
+              loading="lazy"
+              onerror="this.onerror=null; this.src='images/cat-pantai.svg';"
+            >
+            <div class="category-media-overlay"></div>
+            <span class="category-badge-count">2 Destinasi</span>
+            <div class="category-icon-floating">🏖️</div>
+          </div>
+          <div class="category-body">
+            <h3 class="category-title">Wisata Pantai</h3>
+            <p class="category-desc">
+              Garis pantai terpanjang dengan butiran pasir putih halus, tebing kapur menjulang di atas samudra, dan keajaiban pasir pink yang langka di dunia.
+            </p>
+            <span class="category-btn">Eksplor Destinasi Pantai ➔</span>
+          </div>
+        </div>
+
+        <!-- 2. Wisata Pegunungan -->
+        <div class="category-card" data-category="pegunungan">
+          <div class="category-media">
+            <img 
+              src="https://images.unsplash.com/photo-1588668214407-6ea9a6d8c272?auto=format&fit=crop&w=700&q=80" 
+              alt="Wisata Pegunungan Indonesia" 
+              class="category-img"
+              loading="lazy"
+              onerror="this.onerror=null; this.src='images/cat-pegunungan.svg';"
+            >
+            <div class="category-media-overlay"></div>
+            <span class="category-badge-count">2 Destinasi</span>
+            <div class="category-icon-floating">🌋</div>
+          </div>
+          <div class="category-body">
+            <h3 class="category-title">Wisata Pegunungan</h3>
+            <p class="category-desc">
+              Puncak kaldera aktif bercahaya api biru abadi, lautan pasir berbisik, udara sejuk menembus kabut, dan momen matahari terbit paling spektakuler.
+            </p>
+            <span class="category-btn">Eksplor Destinasi Pegunungan ➔</span>
+          </div>
+        </div>
+
+        <!-- 3. Wisata Budaya -->
+        <div class="category-card" data-category="budaya">
+          <div class="category-media">
+            <img 
+              src="https://images.unsplash.com/photo-1596422846543-75c6fc197f07?auto=format&fit=crop&w=700&q=80" 
+              alt="Wisata Budaya Indonesia" 
+              class="category-img"
+              loading="lazy"
+              onerror="this.onerror=null; this.src='images/cat-budaya.svg';"
+            >
+            <div class="category-media-overlay"></div>
+            <span class="category-badge-count">2 Destinasi</span>
+            <div class="category-icon-floating">🎭</div>
+          </div>
+          <div class="category-body">
+            <h3 class="category-title">Wisata Budaya</h3>
+            <p class="category-desc">
+              Tradisi sakral Rambu Solo', magisnya tarian Kecak berlatar senja Samudra Hindia, upacara adat suku asli, dan keagungan rumah adat perahu Tongkonan.
+            </p>
+            <span class="category-btn">Eksplor Destinasi Budaya ➔</span>
+          </div>
+        </div>
+
+        <!-- 4. Wisata Sejarah -->
+        <div class="category-card" data-category="sejarah">
+          <div class="category-media">
+            <img 
+              src="https://images.unsplash.com/photo-1598890777032-bde13fba5be3?auto=format&fit=crop&w=700&q=80" 
+              alt="Wisata Sejarah Indonesia" 
+              class="category-img"
+              loading="lazy"
+              onerror="this.onerror=null; this.src='images/cat-sejarah.svg';"
+            >
+            <div class="category-media-overlay"></div>
+            <span class="category-badge-count">1 Destinasi</span>
+            <div class="category-icon-floating">🏛️</div>
+          </div>
+          <div class="category-body">
+            <h3 class="category-title">Wisata Sejarah</h3>
+            <p class="category-desc">
+              Mahakarya peninggalan wangsa Syailendra abad ke-8, ribuan panel relief filosofi kehidupan, serta jejak peradaban emas nusantara yang dikagumi dunia.
+            </p>
+            <span class="category-btn">Eksplor Destinasi Sejarah ➔</span>
+          </div>
+        </div>
+
+        <!-- 5. Wisata Alam -->
+        <div class="category-card" data-category="alam">
+          <div class="category-media">
+            <img 
+              src="https://images.unsplash.com/photo-1578632767115-351597cf2477?auto=format&fit=crop&w=700&q=80" 
+              alt="Wisata Alam Indonesia" 
+              class="category-img"
+              loading="lazy"
+              onerror="this.onerror=null; this.src='images/cat-alam.svg';"
+            >
+            <div class="category-media-overlay"></div>
+            <span class="category-badge-count">2 Destinasi</span>
+            <div class="category-icon-floating">🌿</div>
+          </div>
+          <div class="category-body">
+            <h3 class="category-title">Wisata Alam</h3>
+            <p class="category-desc">
+              Habitat asli satwa kadal purba komodo di alam bebas, danau vulkanik kaldera terbesar di dunia, perbukitan savana, dan hutan hujan tropis lebat.
+            </p>
+            <span class="category-btn">Eksplor Destinasi Alam ➔</span>
+          </div>
+        </div>
+
+        <!-- 6. Wisata Bahari -->
+        <div class="category-card" data-category="bahari">
+          <div class="category-media">
+            <img 
+              src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=700&q=80" 
+              alt="Wisata Bahari Indonesia" 
+              class="category-img"
+              loading="lazy"
+              onerror="this.onerror=null; this.src='images/cat-bahari.svg';"
+            >
+            <div class="category-media-overlay"></div>
+            <span class="category-badge-count">3 Destinasi</span>
+            <div class="category-icon-floating">🐠</div>
+          </div>
+          <div class="category-body">
+            <h3 class="category-title">Wisata Bahari</h3>
+            <p class="category-desc">
+              Surga diving & snorkeling nomor satu di dunia, ratusan spesies karang lunak dan keras, perairan toska jernih, dan pelayaran kapal megah Phinisi.
+            </p>
+            <span class="category-btn">Eksplor Destinasi Bahari ➔</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================================
+       Destinasi Wisata Pilihan (12 Destinasi Lengkap dengan Search & Filter)
+       ====================================================================== -->
+  <section class="section-padding destinations-section" id="destinasi">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">🗺️ Destinasi Unggulan</span>
+        <h2 class="section-title">Eksplorasi Destinasi <span class="gradient-text">Pariwisata</span></h2>
+        <p class="section-subtitle">
+          Temukan 12 permata wisata Indonesia yang diakui dunia internasional. Gunakan fitur pencarian dan filter untuk menemukan liburan yang tepat.
+        </p>
+      </div>
+
+      <!-- Filter & Search Toolbar -->
+      <div class="filter-control-panel">
+        <div class="filter-row-top">
+          <!-- Live Search Input -->
+          <div class="search-input-wrapper">
+            <span class="search-input-icon">🔍</span>
+            <input 
+              type="text" 
+              id="search-destinations" 
+              placeholder="Ketik nama tempat, lokasi, atau kata kunci..."
+              aria-label="Cari Destinasi"
+            >
+            <button type="button" class="clear-search-btn" id="clear-search-btn" title="Hapus Pencarian">✕</button>
+          </div>
+
+          <!-- Region / Island Dropdown -->
+          <div class="filter-selects-group">
+            <select id="region-filter-select" class="custom-select" aria-label="Filter Wilayah">
+              <option value="all">📍 Semua Pulau</option>
+              <option value="jawa">Jawa</option>
+              <option value="bali">Bali & Nusa Tenggara</option>
+              <option value="sumatera">Sumatera</option>
+              <option value="sulawesi">Sulawesi</option>
+              <option value="papua">Papua & Maluku</option>
+            </select>
+
+            <!-- Sorting Dropdown -->
+            <select id="sort-filter-select" class="custom-select" aria-label="Urutkan Destinasi">
+              <option value="popular">🔥 Paling Populer</option>
+              <option value="rating">⭐ Rating Tertinggi</option>
+              <option value="name-asc">🔤 Nama A - Z</option>
+              <option value="name-desc">🔤 Nama Z - A</option>
+            </select>
+
+            <!-- Reset Filters Button -->
+            <button type="button" class="btn-reset-filters" id="reset-filters-btn">
+              <span>🔄</span> Reset Filter
+            </button>
+          </div>
+        </div>
+
+        <!-- Category Filter Pills -->
+        <div class="filter-category-pills" role="tablist">
+          <button type="button" class="pill-btn active" data-category="all" role="tab">Semua Kategori</button>
+          <button type="button" class="pill-btn" data-category="pantai" role="tab">🏖️ Wisata Pantai</button>
+          <button type="button" class="pill-btn" data-category="pegunungan" role="tab">🌋 Wisata Pegunungan</button>
+          <button type="button" class="pill-btn" data-category="budaya" role="tab">🎭 Wisata Budaya</button>
+          <button type="button" class="pill-btn" data-category="sejarah" role="tab">🏛️ Wisata Sejarah</button>
+          <button type="button" class="pill-btn" data-category="alam" role="tab">🌿 Wisata Alam</button>
+          <button type="button" class="pill-btn" data-category="bahari" role="tab">🐠 Wisata Bahari</button>
+        </div>
+
+        <!-- Live Filter Status Bar -->
+        <div class="filter-status-bar">
+          <div>
+            Menampilkan <span class="result-count-strong" id="result-count-text">12 dari 12</span> destinasi wisata terbaik
+          </div>
+          <div>
+            <small>💡 Klik tombol ❤️ untuk menyimpan ke favorit browser</small>
+          </div>
+        </div>
+      </div>
+
+      <!-- Destinations Dynamic Grid -->
+      <div class="destinations-grid" id="destinations-grid">
+        <!-- Rendered by JavaScript -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================================
+       Detail Modal Pop-up (Interactive Modal)
+       ====================================================================== -->
+  <div class="modal-backdrop" id="dest-modal-backdrop" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal-dialog">
+      <!-- Modal Header with Scenic Photo -->
+      <div class="modal-header-hero">
+        <img src="" alt="" id="modal-hero-img" class="modal-hero-img">
+        <div class="modal-hero-gradient"></div>
+        <button type="button" class="modal-close-btn" id="dest-modal-close" aria-label="Tutup Detail">✕</button>
+        <div class="modal-header-caption">
+          <div class="modal-badges-row">
+            <span class="dest-tag dest-tag-cat" id="modal-tag-cat">Kategori</span>
+            <span class="dest-tag" id="modal-tag-region">Wilayah</span>
+          </div>
+          <h2 class="modal-title" id="modal-title">Nama Destinasi</h2>
+          <div style="display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;">
+            <span class="modal-location-pin" id="modal-location">📍 Lokasi</span>
+            <span style="color: #fbbf24; font-weight: 700; font-size: 0.95rem;" id="modal-rating">⭐ 5.0</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal Body (Scrollable) -->
+      <div class="modal-body-scrollable">
+        <!-- Quick Info Grid -->
+        <div class="modal-info-grid">
+          <div class="modal-info-box">
+            <div class="icon">🎟️</div>
+            <div class="label">Tiket Masuk (HTM)</div>
+            <div class="val" id="modal-info-price">-</div>
+          </div>
+          <div class="modal-info-box">
+            <div class="icon">🗓️</div>
+            <div class="label">Waktu Terbaik</div>
+            <div class="val" id="modal-info-season">-</div>
+          </div>
+          <div class="modal-info-box">
+            <div class="icon">⏱️</div>
+            <div class="label">Saran Durasi</div>
+            <div class="val" id="modal-info-duration">-</div>
+          </div>
+          <div class="modal-info-box">
+            <div class="icon">🛡️</div>
+            <div class="label">Status Konservasi</div>
+            <div class="val" style="color: var(--accent-green);">Terlindungi</div>
+          </div>
+        </div>
+
+        <!-- Modal Tabs Nav -->
+        <div class="modal-tabs-nav">
+          <button type="button" class="modal-tab-btn active" data-tab="tab-tentang">Tentang Tempat</button>
+          <button type="button" class="modal-tab-btn" data-tab="tab-aktivitas">Aktivitas & Fasilitas</button>
+          <button type="button" class="modal-tab-btn" data-tab="tab-tips">Tips Perjalanan</button>
+        </div>
+
+        <!-- Tab 1: Tentang -->
+        <div class="modal-tab-pane active" id="tab-tentang">
+          <p id="modal-desc-text" style="margin-bottom: 1.25rem;"></p>
+          <div style="background-color: var(--primary-light); padding: 1rem 1.25rem; border-radius: var(--radius-md); border-left: 4px solid var(--primary);">
+            <strong style="color: var(--primary);">✨ Fakta Unik Nusantara:</strong>
+            <p style="font-size: 0.9rem; color: var(--text-main); margin-top: 0.25rem;">
+              Destinasi ini merupakan bagian integral dari promosi pariwisata Wonderful Indonesia yang mengedepankan prinsip keberlanjutan dan keaslian ekowisata lokal.
+            </p>
+          </div>
+        </div>
+
+        <!-- Tab 2: Aktivitas & Fasilitas -->
+        <div class="modal-tab-pane" id="tab-aktivitas">
+          <h4 style="font-size: 1.05rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--text-main);">Aktivitas Wisata Unggulan:</h4>
+          <div class="modal-bullet-list" id="modal-activities-list"></div>
+
+          <h4 style="font-size: 1.05rem; font-weight: 700; margin-top: 1.5rem; margin-bottom: 0.5rem; color: var(--text-main);">Fasilitas di Lokasi:</h4>
+          <div class="modal-bullet-list" id="modal-facilities-list"></div>
+        </div>
+
+        <!-- Tab 3: Tips Perjalanan -->
+        <div class="modal-tab-pane" id="tab-tips">
+          <div style="display: flex; gap: 0.75rem; align-items: flex-start; margin-bottom: 1rem;">
+            <span style="font-size: 1.5rem;">🧭</span>
+            <div>
+              <h4 style="font-size: 1rem; font-weight: 700; color: var(--text-main); margin-bottom: 0.25rem;">Rekomendasi Sebelum Berangkat:</h4>
+              <p id="modal-tips-text" style="color: var(--text-muted); font-size: 0.95rem;"></p>
+            </div>
+          </div>
+          <div style="background: var(--bg-surface-alt); padding: 1rem; border-radius: var(--radius-sm); font-size: 0.88rem; color: var(--text-muted);">
+            💡 <strong>Etika Wisatawan:</strong> Selalu hormati norma adat setempat, jangan membuang sampah sembarangan, serta jaga kelestarian terumbu karang dan satwa liar.
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="modal-footer">
+        <div class="modal-footer-actions">
+          <button type="button" class="btn btn-secondary btn-sm" id="modal-favorite-btn">
+            🤍 Simpan ke Favorit
+          </button>
+          <button type="button" class="btn btn-secondary btn-sm" id="modal-share-btn">
+            🔗 Bagikan Tautan
+          </button>
+        </div>
+        <div>
+          <a href="#" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm" id="modal-maps-btn">
+            🗺️ Buka Google Maps ➔
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================================================================
+       Alasan Mengapa Menjelajahi Indonesia (Why Us / Features)
+       ====================================================================== -->
+  <section class="section-padding" id="keunggulan">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">💎 Keajaiban Dunia</span>
+        <h2 class="section-title">Mengapa Harus Menjelajahi <span class="gradient-text">Indonesia?</span></h2>
+        <p class="section-subtitle">
+          Dari gugusan karang terkaya di dunia hingga ribuan tradisi adat yang hidup lestari, inilah alasan mengapa Indonesia menjadi destinasi impian para pelancong dunia.
+        </p>
+      </div>
+
+      <div class="why-us-grid">
+        <!-- Keunggulan 1 -->
+        <div class="why-card">
+          <div class="why-icon-wrap">🌿</div>
+          <h3 class="why-card-title">Mega Keanekaragaman Hayati</h3>
+          <p class="why-card-desc">
+            Indonesia merupakan salah satu negara megadiverse teratas di dunia dengan hutan hujan purba, ratusan satwa endemik langka seperti Orangutan, Badak Jawa, Burung Cendrawasih, dan Komodo.
+          </p>
+        </div>
+
+        <!-- Keunggulan 2 -->
+        <div class="why-card">
+          <div class="why-icon-wrap">🤿</div>
+          <h3 class="why-card-title">Episentrum Karang Dunia</h3>
+          <p class="why-card-desc">
+            Berada di pusat Segitiga Terumbu Karang (Coral Triangle) dunia. Raja Ampat dan Wakatobi menyimpan lebih dari 75% spesies karang laut bumi dan ribuan titik selam kelas dunia.
+          </p>
+        </div>
+
+        <!-- Keunggulan 3 -->
+        <div class="why-card">
+          <div class="why-icon-wrap">🎭</div>
+          <h3 class="why-card-title">Kekayaan Budaya & Adat Luhur</h3>
+          <p class="why-card-desc">
+            Rumah bagi lebih dari 1.340 suku bangsa dengan keragaman bahasa daerah, arsitektur rumah adat unik, tarian tradisional adiluhung, kain tenun ikat nusantara, dan upacara sakral.
+          </p>
+        </div>
+
+        <!-- Keunggulan 4 -->
+        <div class="why-card">
+          <div class="why-icon-wrap">🍲</div>
+          <h3 class="why-card-title">Kuliner Legendaris Berempah</h3>
+          <p class="why-card-desc">
+            Kepulauan Rempah penghasil pala dan cengkih dunia melahirkan kuliner tersohor seperti Rendang (makanan terenak versi CNN), Sate, Nasi Goreng, dan aneka sambal khas kepulauan.
+          </p>
+        </div>
+
+        <!-- Keunggulan 5 -->
+        <div class="why-card">
+          <div class="why-icon-wrap">🤝</div>
+          <h3 class="why-card-title">Keramahan Masyarakat (Hospitality)</h3>
+          <p class="why-card-desc">
+            Masyarakat Indonesia terkenal dengan senyuman tulus, kesantunan bertutur, serta keramahan menyambut tamu dari seluruh penjuru dunia dengan tradisi gotong royong yang kental.
+          </p>
+        </div>
+
+        <!-- Keunggulan 6 -->
+        <div class="why-card">
+          <div class="why-icon-wrap">🏛️</div>
+          <h3 class="why-card-title">Situs Warisan Dunia UNESCO</h3>
+          <p class="why-card-desc">
+            Menyimpan mahakarya sejarah dan alam yang dilindungi UNESCO, seperti Candi Borobudur, Candi Prambanan, Taman Nasional Komodo, Sangiran, dan Sistem Subak Bali.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================================
+       Galeri Wisata Nusantara (12 Foto Menarik & Lightbox Viewer)
+       ====================================================================== -->
+  <section class="section-padding gallery-section" id="galeri">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">📷 Sorotan Visual</span>
+        <h2 class="section-title">Galeri Pesona <span class="gradient-text">Nusantara</span></h2>
+        <p class="section-subtitle">
+          Nikmati keindahan pemandangan alam dan warisan budaya Indonesia dalam tangkapan lensa beresolusi tinggi. Klik foto untuk melihat tampilan penuh.
+        </p>
+      </div>
+
+      <!-- Gallery Filter Tabs -->
+      <div class="gallery-filters-row">
+        <button type="button" class="pill-btn active" data-gallery-filter="all">Semua Foto (12)</button>
+        <button type="button" class="pill-btn" data-gallery-filter="bahari">🐠 Bahari</button>
+        <button type="button" class="pill-btn" data-gallery-filter="pegunungan">🌋 Pegunungan</button>
+        <button type="button" class="pill-btn" data-gallery-filter="budaya">🎭 Budaya</button>
+        <button type="button" class="pill-btn" data-gallery-filter="alam">🌿 Alam</button>
+        <button type="button" class="pill-btn" data-gallery-filter="pantai">🏖️ Pantai</button>
+        <button type="button" class="pill-btn" data-gallery-filter="sejarah">🏛️ Sejarah</button>
+      </div>
+
+      <!-- Gallery Grid -->
+      <div class="gallery-grid" id="gallery-grid">
+        <!-- Rendered by JavaScript -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Lightbox Modal -->
+  <div class="lightbox-modal" id="lightbox-modal" role="dialog" aria-modal="true" aria-hidden="true">
+    <button type="button" class="lightbox-close-btn" id="lightbox-close-btn" aria-label="Tutup Galeri">✕</button>
+    <button type="button" class="lightbox-nav-btn lightbox-prev-btn" id="lightbox-prev-btn" aria-label="Foto Sebelumnya">❮</button>
+    <button type="button" class="lightbox-nav-btn lightbox-next-btn" id="lightbox-next-btn" aria-label="Foto Selanjutnya">❯</button>
+
+    <div class="lightbox-container">
+      <div class="lightbox-img-wrap">
+        <img src="" alt="" id="lightbox-img" class="lightbox-img">
+      </div>
+      <div class="lightbox-info-bar">
+        <h3 class="lightbox-title" id="lightbox-title">Judul Foto</h3>
+        <p class="lightbox-meta">
+          <span id="lightbox-loc">📍 Lokasi</span> • <span id="lightbox-counter">Foto 1 dari 12</span>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================================================================
+       Tentang Kami (About Us & Animated Counters)
+       ====================================================================== -->
+  <section class="section-padding" id="tentang">
+    <div class="container">
+      <div class="about-hero-grid">
+        <!-- About Left Column: Story -->
+        <div class="about-text-col">
+          <span class="section-tag">ℹ️ Mengenal Jelajah Nusantara</span>
+          <h2 class="about-main-title">
+            Mendedikasikan Inspirasi Perjalanan Menembus Batas <span class="gradient-text">Khatulistiwa</span>
+          </h2>
+          <p class="about-p">
+            <strong>JELAJAH NUSANTARA – Explore Indonesia</strong> hadir sebagai platform edukasi dan direktori pariwisata modern untuk memperkenalkan mahakarya alam dan budaya Indonesia ke mata dunia, sekaligus memenuhi tugas akademik mata kuliah Pemrograman Web.
+          </p>
+          <p class="about-p">
+            Website ini dirancang secara murni menggunakan standar web modern (HTML5, CSS3, dan Vanilla JavaScript) tanpa ketergantungan framework maupun basis data server, menghasilkan performa yang sangat ringan, responsif, dan interaktif di berbagai perangkat.
+          </p>
+
+          <!-- Visi & Misi Box -->
+          <div class="vision-mission-box">
+            <div class="vm-item">
+              <div class="vm-icon">🎯</div>
+              <div class="vm-content">
+                <h4>Visi Jelajah Nusantara</h4>
+                <p>Menjadi portal informasi wisata nusantara yang tepercaya, elegan, dan menginspirasi jutaan pelancong untuk mencintai dan merawat kekayaan Indonesia.</p>
+              </div>
+            </div>
+            <div class="vm-item">
+              <div class="vm-icon">🚀</div>
+              <div class="vm-content">
+                <h4>Misi Kami</h4>
+                <p>Menyajikan data destinasi yang komprehensif, mengedukasi etika berwisata yang ramah lingkungan (eco-tourism), serta memberdayakan promosi budaya daerah.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- About Right Column: Graphic Media -->
+        <div class="about-media-col">
+          <div class="about-img-frame">
+            <img 
+              src="https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?auto=format&fit=crop&w=900&q=80" 
+              alt="Eksplorasi Keindahan Kepulauan Indonesia" 
+              class="about-img"
+              loading="lazy"
+              onerror="this.onerror=null; this.src='images/hero-banner.svg';"
+            >
+          </div>
+          <div class="about-floating-card">
+            <div class="about-card-icon">🇮🇩</div>
+            <div class="about-card-text">
+              <h5>Pesona Indonesia</h5>
+              <p>Wonderful Indonesia Official Spirit</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Animated Numbers Statistics Strip -->
+      <div class="stats-counter-strip">
+        <div class="counter-box">
+          <div class="counter-icon">🏝️</div>
+          <div class="counter-number" data-target="17508">0</div>
+          <div class="counter-label">Pulau Tropis Megah</div>
+        </div>
+
+        <div class="counter-box">
+          <div class="counter-icon">🎭</div>
+          <div class="counter-number" data-target="1340">0</div>
+          <div class="counter-label">Suku Bangsa & Tradisi</div>
+        </div>
+
+        <div class="counter-box">
+          <div class="counter-icon">🌲</div>
+          <div class="counter-number" data-target="54">0</div>
+          <div class="counter-label">Taman Nasional Konservasi</div>
+        </div>
+
+        <div class="counter-box">
+          <div class="counter-icon">⭐</div>
+          <div class="counter-number" data-target="100">0</div>
+          <div class="counter-label">% Pesona Memukau</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================================
+       FAQ Accordion Section (Pertanyaan Umum)
+       ====================================================================== -->
+  <section class="section-padding" id="faq" style="background-color: var(--bg-surface-alt);">
+    <div class="container faq-section">
+      <div class="section-header">
+        <span class="section-tag">❓ Panduan Traveler</span>
+        <h2 class="section-title">Pertanyaan Sering <span class="gradient-text">Diajukan</span></h2>
+        <p class="section-subtitle">
+          Informasi praktis seputar musim terbaik, persiapan fisik, dan tips liburan ke berbagai destinasi eksotis Indonesia.
+        </p>
+      </div>
+
+      <div class="faq-list">
+        <!-- FAQ 1 -->
+        <div class="faq-item active">
+          <button type="button" class="faq-question">
+            <span>Kapan waktu terbaik untuk berlibur ke Indonesia?</span>
+            <span class="faq-toggle-icon">▼</span>
+          </button>
+          <div class="faq-answer">
+            Secara umum, musim kemarau di Indonesia berlangsung antara bulan <strong>Mei hingga Oktober</strong>. Ini adalah periode emas untuk aktivitas luar ruangan seperti trekking di Gunung Bromo, menyelam di Raja Ampat atau Wakatobi, serta menikmati pantai di Bali dan Labuan Bajo dengan langit cerah dan laut yang tenang.
+          </div>
+        </div>
+
+        <!-- FAQ 2 -->
+        <div class="faq-item">
+          <button type="button" class="faq-question">
+            <span>Apakah fitur "Favorit" menyimpan data ke database server?</span>
+            <span class="faq-toggle-icon">▼</span>
+          </button>
+          <div class="faq-answer">
+            Tidak. Website ini dibangun murni menggunakan teknologi client-side. Fitur favorit memanfaatkan <strong>Web Storage API (localStorage)</strong> pada browser Google Chrome Anda, sehingga daftar destinasi tersimpan otomatis di perangkat Anda tanpa membutuhkan server atau database backend.
+          </div>
+        </div>
+
+        <!-- FAQ 3 -->
+        <div class="faq-item">
+          <button type="button" class="faq-question">
+            <span>Bagaimana tips aman berwisata ke Taman Nasional Komodo?</span>
+            <span class="faq-toggle-icon">▼</span>
+          </button>
+          <div class="faq-answer">
+            Pengunjung wajib selalu didampingi oleh <strong>Ranger (pawang) resmi</strong> berlisensi. Dilarang berjalan sendirian keluar dari jalur setapak (trekking path), tidak membuat suara gaduh atau gerakan mendadak, serta wanita yang sedang menstruasi dianjurkan melapor ke ranger karena penciuman komodo sangat peka terhadap aroma darah.
+          </div>
+        </div>
+
+        <!-- FAQ 4 -->
+        <div class="faq-item">
+          <button type="button" class="faq-question">
+            <span>Apa yang perlu dipersiapkan untuk melihat Blue Fire di Kawah Ijen?</span>
+            <span class="faq-toggle-icon">▼</span>
+          </button>
+          <div class="faq-answer">
+            Pendakian dimulai dini hari sekitar pukul 01.00 WIB. Bawalah pakaian hangat berlapis (jaket windproof), sepatu trekking antiselip, senter kepala (headlamp), serta <strong>masker gas respirator khusus</strong> untuk menyaring gas asam belerang ketika menuruni kaldera.
+          </div>
+        </div>
+
+        <!-- FAQ 5 -->
+        <div class="faq-item">
+          <button type="button" class="faq-question">
+            <span>Bagaimana etika menghormati budaya saat berkunjung ke Tana Toraja?</span>
+            <span class="faq-toggle-icon">▼</span>
+          </button>
+          <div class="faq-answer">
+            Kenakan pakaian yang sopan dan tertutup. Saat menghadiri upacara pemakaman akbar Rambu Solo', bawalah buah tangan sederhana seperti kopi atau gula bagi keluarga yang berduka. Jangan pernah memegang patung kayu leluhur (Tau-Tau) atau tengkorak di makam gua batu Londa.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================================
+       Kontak Kami (Interactive Form & Contact Cards)
+       ====================================================================== -->
+  <section class="section-padding" id="kontak">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">✉️ Terhubung Bersama Kami</span>
+        <h2 class="section-title">Hubungi Tim <span class="gradient-text">Jelajah Nusantara</span></h2>
+        <p class="section-subtitle">
+          Punya pertanyaan seputar panduan wisata, kritik, atau saran untuk pengembangan website tugas kuliah ini? Kirimkan pesan Anda melalui formulir di bawah ini.
+        </p>
+      </div>
+
+      <div class="contact-layout">
+        <!-- Contact Left Column: Info Cards -->
+        <div class="contact-info-col">
+          <div class="contact-info-card">
+            <h3 class="contact-card-title">Pusat Informasi & Layanan</h3>
+            <p class="contact-card-desc">
+              Kami siap membantu Anda mendapatkan inspirasi liburan nusantara terbaik serta menerima masukan akademik dengan senang hati.
+            </p>
+
+            <div class="contact-detail-list">
+              <div class="contact-detail-item">
+                <div class="detail-icon-box">📍</div>
+                <div class="detail-meta-text">
+                  <h5>Lokasi Kampus</h5>
+                  <p>Laboratorium Komputer & Rekayasa Perangkat Lunak, Indonesia</p>
+                </div>
+              </div>
+
+              <div class="contact-detail-item">
+                <div class="detail-icon-box">📧</div>
+                <div class="detail-meta-text">
+                  <h5>Email Resmi</h5>
+                  <p>info@jelajahnusantara.id / mahasiswa@kampus.ac.id</p>
+                </div>
+              </div>
+
+              <div class="contact-detail-item">
+                <div class="detail-icon-box">📱</div>
+                <div class="detail-meta-text">
+                  <h5>WhatsApp Hotline</h5>
+                  <p>+62 812-3456-7890 (Layanan Wisatawan)</p>
+                </div>
+              </div>
+
+              <div class="contact-detail-item">
+                <div class="detail-icon-box">⏰</div>
+                <div class="detail-meta-text">
+                  <h5>Jam Operasional</h5>
+                  <p>Senin – Jumat: 08.00 – 17.00 WIB</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-info-card" style="background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); color: #ffffff;">
+            <h4 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 0.5rem;">🌟 Komitmen Wisata Berkelanjutan</h4>
+            <p style="font-size: 0.88rem; color: #e2e8f0; line-height: 1.6;">
+              Mari lestarikan keindahan alam nusantara dengan menerapkan prinsip <em>"Take nothing but pictures, leave nothing but footprints, kill nothing but time."</em>
+            </p>
+          </div>
+        </div>
+
+        <!-- Contact Right Column: Interactive Form -->
+        <div class="contact-form-card">
+          <h3 style="font-size: 1.4rem; font-weight: 800; color: var(--text-main); margin-bottom: 0.5rem;">Kirimkan Pesan Anda</h3>
+          <p style="font-size: 0.92rem; color: var(--text-muted); margin-bottom: 1.75rem;">
+            Formulir divalidasi langsung oleh JavaScript di sisi browser dengan notifikasi instan.
+          </p>
+
+          <form id="contact-form" novalidate>
+            <div class="form-grid">
+              <!-- Nama -->
+              <div class="form-group">
+                <label for="contact-name" class="form-label">
+                  Nama Lengkap <span class="required">*</span>
+                </label>
+                <input 
+                  type="text" 
+                  id="contact-name" 
+                  class="form-control" 
+                  placeholder="Masukkan nama Anda"
+                  required
+                >
+                <div class="form-error-feedback">Nama wajib diisi minimal 3 karakter.</div>
+              </div>
+
+              <!-- Email -->
+              <div class="form-group">
+                <label for="contact-email" class="form-label">
+                  Alamat Email <span class="required">*</span>
+                </label>
+                <input 
+                  type="email" 
+                  id="contact-email" 
+                  class="form-control" 
+                  placeholder="nama@email.com"
+                  required
+                >
+                <div class="form-error-feedback">Format alamat email tidak valid.</div>
+              </div>
+
+              <!-- Phone -->
+              <div class="form-group">
+                <label for="contact-phone" class="form-label">Nomor WhatsApp / HP</label>
+                <input 
+                  type="tel" 
+                  id="contact-phone" 
+                  class="form-control" 
+                  placeholder="Contoh: 08123456789"
+                >
+              </div>
+
+              <!-- Subjek -->
+              <div class="form-group">
+                <label for="contact-subject" class="form-label">Subjek Pesan</label>
+                <select id="contact-subject" class="form-control">
+                  <option value="pertanyaan">Pertanyaan Destinasi</option>
+                  <option value="rekomendasi">Rekomendasi Tempat Baru</option>
+                  <option value="kerjasama">Kerjasama / Liputan Wisata</option>
+                  <option value="tugas-kuliah">Review Tugas Pemrograman Web</option>
+                  <option value="lainnya">Lainnya</option>
+                </select>
+              </div>
+
+              <!-- Isi Pesan -->
+              <div class="form-group col-full">
+                <label for="contact-message" class="form-label">
+                  Isi Pesan <span class="required">*</span>
+                </label>
+                <textarea 
+                  id="contact-message" 
+                  class="form-control" 
+                  placeholder="Tuliskan pesan atau pertanyaan Anda di sini..."
+                  rows="4"
+                  required
+                ></textarea>
+                <div class="form-error-feedback">Pesan wajib diisi minimal 10 karakter.</div>
+              </div>
+            </div>
+
+            <div class="form-submit-row">
+              <span style="font-size: 0.8rem; color: var(--text-muted);">
+                🔒 Data hanya diproses di browser tanpa simpan server.
+              </span>
+              <button type="submit" class="btn btn-primary" id="contact-submit-btn">
+                <span>✉️</span> Kirim Pesan Sekarang
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================================
+       Favorit / Wishlist Drawer
+       ====================================================================== -->
+  <aside class="favorites-drawer" id="favorites-drawer" aria-label="Daftar Destinasi Favorit">
+    <div class="fav-drawer-header">
+      <h3 class="fav-drawer-title">
+        <span>❤️</span> Destinasi Favorit
+      </h3>
+      <button type="button" class="nav-action-btn" id="fav-drawer-close" aria-label="Tutup Favorit">✕</button>
+    </div>
+
+    <div class="fav-items-container" id="fav-items-container">
+      <!-- Items dynamically populated by JavaScript -->
+    </div>
+
+    <div style="padding-top: 1rem; border-top: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center;">
+      <button type="button" class="btn-sm" id="fav-clear-all-btn" style="color: #ef4444; font-weight: 600;">
+        🗑️ Hapus Semua
+      </button>
+      <a href="#destinasi" class="btn btn-primary btn-sm" onclick="document.getElementById('favorites-drawer').classList.remove('open');">
+        Eksplor Lainnya ➔
+      </a>
+    </div>
+  </aside>
+
+  <!-- ======================================================================
+       Floating Back to Top & Toast Notification Container
+       ====================================================================== -->
+  <button type="button" id="back-to-top" title="Kembali ke Atas" aria-label="Kembali ke Atas">
+    ▲
+  </button>
+
+  <div class="toast-container" id="toast-container" aria-live="polite"></div>
+
+  <!-- ======================================================================
+       Footer Section
+       ====================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-main-grid">
+        <!-- Col 1: Brand Info -->
+        <div class="footer-col-brand">
+          <div class="brand-logo">
+            <div class="logo-badge">🧭</div>
+            <div class="logo-text-group">
+              <span class="logo-title">JELAJAH <span style="color: #fbbf24;">NUSANTARA</span></span>
+              <span class="logo-tagline">Explore Indonesia</span>
+            </div>
+          </div>
+          <p class="footer-desc">
+            Portal pariwisata Indonesia modern yang merayakan kekayaan hayati, kemegahan lanskap vulkanik, keindahan bahari tropis, serta kearifan budaya nusantara dari Sabang sampai Merauke.
+          </p>
+          <div class="footer-social-row">
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-icon-btn" title="Instagram" aria-label="Instagram">📷</a>
+            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="social-icon-btn" title="YouTube" aria-label="YouTube">▶️</a>
+            <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" class="social-icon-btn" title="TikTok" aria-label="TikTok">🎵</a>
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="social-icon-btn" title="Facebook" aria-label="Facebook">📘</a>
+          </div>
+        </div>
+
+        <!-- Col 2: Navigasi Cepat -->
+        <div>
+          <h4 class="footer-heading">Navigasi Halaman</h4>
+          <ul class="footer-links-list">
+            <li><a href="#beranda">Beranda</a></li>
+            <li><a href="#kategori">Kategori Wisata</a></li>
+            <li><a href="#destinasi">12 Destinasi Pilihan</a></li>
+            <li><a href="#keunggulan">Mengapa Indonesia</a></li>
+            <li><a href="#galeri">Galeri Foto</a></li>
+            <li><a href="#tentang">Tentang Website</a></li>
+            <li><a href="#kontak">Hubungi Kami</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Wilayah Kepulauan -->
+        <div>
+          <h4 class="footer-heading">Gugusan Pulau</h4>
+          <ul class="footer-links-list">
+            <li><a href="#destinasi">Kepulauan Papua & Raja Ampat</a></li>
+            <li><a href="#destinasi">Pulau Dewata Bali & Nusa Penida</a></li>
+            <li><a href="#destinasi">Nusa Tenggara Timur & Komodo</a></li>
+            <li><a href="#destinasi">Jawa Timur & Kaldera Bromo</a></li>
+            <li><a href="#destinasi">Jawa Tengah & Candi Borobudur</a></li>
+            <li><a href="#destinasi">Sumatera Utara & Danau Toba</a></li>
+            <li><a href="#destinasi">Sulawesi & Tana Toraja - Wakatobi</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Newsletter & Info Akademik -->
+        <div>
+          <h4 class="footer-heading">Buletin Wisata</h4>
+          <p class="footer-newsletter-p">
+            Dapatkan inspirasi liburan nusantara dan tips perjalanan mingguan langsung di email Anda.
+          </p>
+          <form class="newsletter-form" id="newsletter-form">
+            <input 
+              type="email" 
+              class="newsletter-input" 
+              placeholder="Masukkan email Anda" 
+              required
+              aria-label="Email Buletin"
+            >
+            <button type="submit" class="btn btn-gold btn-sm">Daftar</button>
+          </form>
+          <div style="margin-top: 1.5rem;">
+            <span class="footer-badge-academic">
+              🎓 Tugas Kuliah Pemrograman Web
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer Bottom Bar -->
+      <div class="footer-bottom-bar">
+        <div>
+          &copy; <span id="current-year"></span> <strong>JELAJAH NUSANTARA – Explore Indonesia</strong>. Seluruh Hak Cipta Dilindungi.
+        </div>
+        <div>
+          <span>Dibuat dengan HTML5, CSS3, & Vanilla JavaScript murni tanpa backend.</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Main JavaScript File -->
+  <script src="js/script.js"></script>
+</body>
+</html>
+
